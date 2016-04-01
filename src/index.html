@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Campaign Champagne</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    * {
+      margin: 0;
+      overflow: hidden;
+      cursor: crosshair;
+    }
+  </style>
+  <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script>
+  <script>
+    var soundID = "Sea";
+
+    function loadSound () {
+      createjs.Sound.registerSound("sea.wav", soundID);
+      setTimeout(function() { playSound(); }, 500);
+      setInterval(function() { playSound(); }, 19000);
+    }
+
+    function playSound () {
+      createjs.Sound.play(soundID);
+    }
+  </script>
+</head>
+<body onload="loadSound();">
+  <h1 style="position: absolute; top: 7%; right: 3%; font-family: 'roboto'; color: #176AB1; pointer-events: none; font-size: 15px">Archipelago. By Adslot</h1>
+  <script type="text/javascript" src="assets/app.js"></script>
+</body>
+</html>
