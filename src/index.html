@@ -18,7 +18,7 @@
     var soundID = "Sea";
 
     function loadSound () {
-      createjs.Sound.registerSound("sea.wav", soundID);
+      createjs.Sound.registerSound("sounds/sea.wav", soundID);
       setTimeout(function() { playSound(); }, 500);
       setInterval(function() { playSound(); }, 19000);
     }
@@ -29,7 +29,7 @@
   </script>
 </head>
 <body onload="loadSound();">
-  <h1 style="position: absolute; top: 7%; right: 3%; font-family: 'roboto'; color: #176AB1; pointer-events: none; font-size: 15px">Archipelago. By Adslot</h1>
+  <h1 style="position: absolute; top: 7%; right: 3%; font-family: 'Lato'; color: #53A672; pointer-events: none; font-size: 25px">Archipelago</h1>
   <script type="text/javascript" src="assets/app.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+import THREE from 'three';
 /**
  * @author zz85 / https://github.com/zz85
  *
@@ -14,7 +15,7 @@
  * Three.js integration by zz85 http://twitter.com/blurspline
 */
 
-const skyShaderBuilder = (THREE) => ({
+THREE.ShaderLib[ 'sky' ] = {
 
 	uniforms: {
 
@@ -236,11 +237,13 @@ const skyShaderBuilder = (THREE) => ({
 
 	].join( "\n" )
 
-});
+};
 
-const Sky = function (THREE) {
-  const skyShader = skyShaderBuilder(THREE);
+THREE.Sky = function () {
+
+	var skyShader = THREE.ShaderLib[ "sky" ];
 	var skyUniforms = THREE.UniformsUtils.clone( skyShader.uniforms );
+
 	var skyMat = new THREE.ShaderMaterial( {
 		fragmentShader: skyShader.fragmentShader,
 		vertexShader: skyShader.vertexShader,
@@ -248,29 +251,12 @@ const Sky = function (THREE) {
 		side: THREE.BackSide
 	} );
 
-  const inclination = 0.2; // elevation / inclination
-  const azimuth = 0.25; // Facing front,
-  skyMat.uniforms.turbidity.value = 10;
-  skyMat.uniforms.reileigh.value = 2;
-  skyMat.uniforms.luminance.value = 1;
-  skyMat.uniforms.mieCoefficient.value = 0.005;
-  skyMat.uniforms.mieDirectionalG.value = 0.8;
-
-  var theta = Math.PI * ( inclination - 0.5 );
-  var phi = 2 * Math.PI * ( azimuth - 0.5 );
-
-  let position = {};
-  const distance = 200;
-  position.x = distance * Math.cos( phi );
-  position.y = distance * Math.sin( phi ) * Math.sin( theta );
-  position.z = distance * Math.sin( phi ) * Math.cos( theta );
-
-  skyMat.uniforms.sunPosition.value.copy( position );
-
-	var skyGeo = new THREE.SphereBufferGeometry( distance, 32, 15 );
+	var skyGeo = new THREE.SphereBufferGeometry( 100, 32, 15 );
 	var skyMesh = new THREE.Mesh( skyGeo, skyMat );
 
-  return skyMesh;
-};
 
-export default Sky;
+	// Expose variables
+	this.mesh = skyMesh;
+	this.uniforms = skyUniforms;
+
+};
