@@ -51,7 +51,7 @@
     "open": "0.0.5",
     "phantomjs-prebuilt": "^2.1.6",
     "rimraf": "^2.5.2",
-    "style-loader": "^0.13.0",
+    "style-loader": "^0.23.1",
     "three": "^0.75.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
