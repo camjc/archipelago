@@ -48,7 +48,7 @@
     "minimist": "^1.2.0",
     "mocha": "^2.4.5",
     "null-loader": "^0.1.1",
-    "open": "0.0.5",
+    "open": "6.3.0",
     "phantomjs-prebuilt": "^2.1.6",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.0",
